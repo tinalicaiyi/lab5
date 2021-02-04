@@ -10,7 +10,17 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+
+	$("div.imaginary-friends a").click(function (e){
+	e.preventDefault();
+	var current_name = $(this).find("h1").text();
+	console.log(current_name);
+	var anagramme_name = anagrammedName(current_name);
+	console.log(anagramme_name);
+	$(this).find("h1").text(anagramme_name);
+	});
 }
+
 
 function anagrammedName(name) {
 	// Thanks, Internet Anagram Server!
@@ -44,3 +54,4 @@ function anagrammedName(name) {
 		return name;
 	}
 }
+
